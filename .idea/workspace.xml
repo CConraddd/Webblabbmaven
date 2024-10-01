@@ -9,23 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dborder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dborder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbproduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbproduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbuser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,20 +23,21 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "CConraddd"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;CConraddd&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/CConraddd/Webblabbmaven.git",
-    "accountId": "3221afab-8a79-40ca-b7d9-189adc84841c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CConraddd/Webblabbmaven.git&quot;,
+    &quot;accountId&quot;: &quot;3221afab-8a79-40ca-b7d9-189adc84841c&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -84,6 +69,7 @@
   "keyToString": {
     "Application.dbimpl.executor": "Run",
     "Docker.docker-compose.yml.db: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 10.1.30.executor": "Run",
@@ -95,9 +81,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -111,7 +97,7 @@
       <recent name="gruoppo.test.presentation" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.30">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration name="dbimpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gruoppo.test.database.dbimpl" />
       <module name="test" />
@@ -167,6 +153,14 @@
       <deployment type="docker-compose.yml" />
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.yml.db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -183,6 +177,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Application.dbimpl" />
         <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
       </list>
