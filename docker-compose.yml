@@ -1,0 +1,23 @@
+services:
+  db:
+    image: mysql:latest  # You can specify the version you want here
+    environment:
+      MYSQL_ROOT_PASSWORD: Gaming123   # Set your root password
+      MYSQL_DATABASE: webshop          # Name of the default database
+      MYSQL_USER: user                     # Custom MySQL user
+      MYSQL_PASSWORD: user_password        # Password for the custom user
+    volumes:
+      - db_data:/var/lib/mysql             # Persistent storage for MySQL data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # SQL file for initialization
+    ports:
+      - "3307:3306"                        # Expose MySQL on port 3306
+    networks:
+      - my_network
+
+volumes:
+  db_data:
+    driver: local                          # Use local storage for the volume
+
+networks:
+  my_network:
+    driver: bridge                         # Define a bridge network for the containers
