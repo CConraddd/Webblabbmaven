@@ -18,14 +18,7 @@ public class Order {
         this.products = products;
     }
 
-    // Constructor accepting timestamps (for completeness)
-    public Order(int orderId, int userId, Timestamp created, Timestamp updated, Timestamp delivered) {
-        this.orderId = orderId;
-        this.userId = userId;
-        this.created = created;
-        this.updated = updated;
-        this.delivered = delivered;
-    }
+
 
     // Getters and Setters
     public int getOrderId() {
