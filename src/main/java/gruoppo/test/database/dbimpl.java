@@ -1,9 +1,12 @@
 package gruoppo.test.database;
 import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 
 public class dbimpl{
-    private static final String URL = "jdbc:mysql://localhost:3306/webshop?UseClientEnc=UTF8";
+    private static final String URL = "jdbc:mysql://localhost:3307/webshop?UseClientEnc=UTF8";
     private static final String USER = "root";
     private static final String PASSWORD = "Gaming123";
     private Connection connection;

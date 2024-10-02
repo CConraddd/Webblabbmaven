@@ -10,7 +10,7 @@ public class Model {
     public boolean connect(String database) throws Exception{
         database = "webshop_db";
         try {
-            String connectionString = "jdbc:mysql://localhost:3306/" + database + "?user=root" + "&password=Gaming123";
+            String connectionString = "jdbc:mysql://localhost:3307/" + database + "?user=root" + "&password=Gaming123";
             connection = DriverManager.getConnection(connectionString);
             connection.setAutoCommit(false);
             System.out.println("Connected to the database");

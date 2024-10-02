@@ -8,7 +8,8 @@ services:
       MYSQL_PASSWORD: user_password        # Password for the custom user
     volumes:
       - db_data:/var/lib/mysql             # Persistent storage for MySQL data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # SQL file for initialization
+      - ./db:/docker-entrypoint-initdb.d/  # SQL file for initialization
+
     ports:
       - "3307:3306"                        # Expose MySQL on port 3306
     networks:
