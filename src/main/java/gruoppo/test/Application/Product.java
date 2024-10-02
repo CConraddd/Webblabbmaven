@@ -6,13 +6,15 @@ public class Product {
     private int productId;
     private String name;
     private int stock;
+    private int amount;
     private BigDecimal price;
     private String category;
 
     // Constructor for creating a new product without a product ID (e.g., for adding a new product)
-    public Product(String name, int stock, BigDecimal price, String category) {
+    public Product(String name, int stock, BigDecimal price, String category, int amount) {
         this.name = name;
         this.stock = stock;
+        this.amount = amount;
         this.price = price;
         this.category = category;
     }
@@ -26,6 +28,13 @@ public class Product {
         this.category = category;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
     // Getters and Setters
     public int getProductId() {
         return productId;

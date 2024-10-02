@@ -36,6 +36,63 @@ public class dborder {
         return -1;
     }
 
+    public static void createOrderWithProducts(Connection connection, Order order) throws SQLException {
+        String insertOrderQuery = "INSERT INTO orders (userId) VALUES (?)";
+        String insertOrderProductQuery = "INSERT INTO orderProducts (orderId, productId, amount) VALUES (?, ?, ?)";
+        if(order == null || order.getProducts() == null||order.getProducts().isEmpty()){
+            throw new IllegalArgumentException("Order object is null or empty");
+        }
+        try (PreparedStatement orderStmt = connection.prepareStatement(insertOrderQuery, Statement.RETURN_GENERATED_KEYS);
+             PreparedStatement productStmt = connection.prepareStatement(insertOrderProductQuery)) {
+
+            connection.setAutoCommit(false);
+
+            orderStmt.setInt(1, order.getUserId());
+            int rowsAffected = orderStmt.executeUpdate();
+
+            if(rowsAffected == 0){
+                throw new SQLException("Insert order failed, no rows affected");
+            }
+
+            ResultSet generatedKeys = orderStmt.getGeneratedKeys();
+            int orderId = 0;
+            if (generatedKeys.next()) {
+                orderId = generatedKeys.getInt(1);
+            } else {
+                throw new SQLException("Creating order failed, no ID obtained");
+            }
+
+            for(Product product : order.getProducts()){
+                int productId = product.getProductId();
+                int quantity = product.getAmount();
+                if(quantity <=0){
+                    throw new IllegalArgumentException("Product quantity is less than zero for product-id: " + productId);
+                }
+
+                productStmt.setInt(1, orderId);
+                productStmt.setInt(2, productId);
+                productStmt.setInt(3, quantity);
+
+                int productRowsAffected = productStmt.executeUpdate();
+                if(productRowsAffected == 0){
+                    throw new SQLException("Insert product failed with id "+ productId +" no rows affected");
+                }
+            }
+
+            connection.commit();
+        } catch (SQLException e) {
+            if (connection != null) {
+                connection.rollback();
+            }
+            throw new SQLException("Insert order failed" + e.getMessage(), e);
+        } finally {
+            if (connection != null) {
+                connection.setAutoCommit(true);
+            }
+        }
+    }
+
+
     // 2. Add a product to an order
     public static boolean addProductToOrder(int orderId, int productId, int amount) {
         try (Connection conn = getConnection()) {
