@@ -7,15 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class dborder {
-
-    // Connection to the database
-    private static Connection getConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/your_database";  // Update with actual DB connection details
-        String username = "root";  // Update with actual username
-        String password = "";  // Update with actual password
-        return DriverManager.getConnection(url, username, password);
-    }
-
+/*
     // 1. Create a new order for a user
     public static int createOrder(int userId) {
         try (Connection conn = getConnection()) {
@@ -91,6 +83,11 @@ public class dborder {
             }
         }
     }
+
+    public static Product getProductsInCart(){
+        return null;
+    }
+
 
 
     // 2. Add a product to an order
@@ -183,4 +180,6 @@ public class dborder {
         }
         return orders;
     }
+
+ */
 }

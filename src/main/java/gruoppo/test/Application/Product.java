@@ -20,12 +20,13 @@ public class Product {
     }
 
     // Constructor for fetching an existing product (with productId)
-    public Product(int productId, String name, int stock, BigDecimal price, String category) {
+    public Product(int productId, String name, int stock, BigDecimal price, String category, int amount) {
         this.productId = productId;
         this.name = name;
         this.stock = stock;
         this.price = price;
         this.category = category;
+        this.amount = amount;
     }
 
     public int getAmount() {

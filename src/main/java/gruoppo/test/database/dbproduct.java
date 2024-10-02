@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class dbproduct {
-
+    /*
     // Connection to the database
     private static Connection getConnection() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/your_database";  // Update with actual DB connection details
@@ -32,7 +32,62 @@ public class dbproduct {
         }
         return false;
     }
+    */
 
+    public static void addProductToCart(Connection connection, int userId, int productId, int quantity) throws SQLException {
+        String query = "INSERT INTO shoppingCart (userId, productId, amount) VALUES (?, ?, ?) " +
+                "ON DUPLICATE KEY UPDATE amount = amount + ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            stmt.setInt(2, productId);
+            stmt.setInt(3, quantity);
+            stmt.setInt(4, quantity);
+            stmt.executeUpdate();
+        }
+    }
+
+    public static void removeProductFromCart(Connection connection, int userId, int productId) throws SQLException {
+        String query = "DELETE FROM shoppingCart WHERE userId = ? AND productId = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            stmt.setInt(2, productId);
+            stmt.executeUpdate();
+        }
+    }
+
+    public static void clearCart(Connection connection, int userId) throws SQLException {
+        String query = "DELETE FROM shoppingCart WHERE userId = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            stmt.executeUpdate();
+        }
+    }
+
+    public static List<Product> getProductsInCart(Connection connection, int userId) throws SQLException {
+        String query = "SELECT p.productId, p.name, p.stock, p.price, p.category, c.amount " +
+                "FROM products p " +
+                "JOIN shoppingCart c ON p.productId = c.productId " +
+                "WHERE c.userId = ?";
+        List<Product> cart = new ArrayList<>();
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Product product = new Product(
+                        rs.getInt("productId"),
+                        rs.getString("name"),
+                        rs.getInt("stock"),
+                        rs.getBigDecimal("price"),
+                        rs.getString("category"),
+                        rs.getInt("amount")
+                );
+                cart.add(product);
+            }
+        }
+        return cart;
+    }
+
+    /*
     // 2. Update an existing product
     public static boolean updateProduct(Product product) {
         try (Connection conn = getConnection()) {
@@ -112,4 +167,6 @@ public class dbproduct {
         }
         return products;
     }
+
+     */
 }
