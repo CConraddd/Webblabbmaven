@@ -1,4 +1,4 @@
-package application;
+package gruoppo.test.Application;
 
 public class User {
     private String username;

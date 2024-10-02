@@ -1,7 +1,7 @@
-package database;
+package gruoppo.test.database;
 
-import application.Order;
-import application.Product;
+import gruoppo.test.Application.Order;
+import gruoppo.test.Application.Product;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

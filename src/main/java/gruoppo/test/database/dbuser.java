@@ -1,6 +1,6 @@
-package database;
+package gruoppo.test.database;
 
-import application.User;
+import gruoppo.test.Application.User;
 
 public class dbuser {
     public static User login(){

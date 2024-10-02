@@ -1,4 +1,4 @@
-package application;
+package gruoppo.test.Application;
 
 import java.sql.Timestamp;
 import java.util.List;

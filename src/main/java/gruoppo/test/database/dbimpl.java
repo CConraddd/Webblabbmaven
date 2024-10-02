@@ -1,4 +1,4 @@
-package database;
+package gruoppo.test.database;
 import java.sql.*;
 
 
