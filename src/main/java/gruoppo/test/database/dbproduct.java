@@ -95,7 +95,7 @@ public class dbproduct {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Product product = new Product(
-
+                    rs.getInt("productId"),
                     rs.getString("name"),
                     rs.getInt("stock"),
                     rs.getBigDecimal("price"),
