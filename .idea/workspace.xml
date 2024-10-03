@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="test:war exploded" />
+      <artifact name="Webblabbmaven2:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="fixade docker">
+    <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="fixade db o hemsida">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/1-init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/1-init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/2-dataforshop.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/2-dataforshop.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbproduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbproduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +86,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -236,14 +232,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.dbimpl" />
-      <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.30" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.dbimpl" />
         <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
+        <item itemvalue="Application.dbimpl" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -270,6 +266,10 @@
       <workItem from="1727903577538" duration="595000" />
       <workItem from="1727904197875" duration="678000" />
       <workItem from="1727904946423" duration="114000" />
+      <workItem from="1727945027333" duration="1056000" />
+      <workItem from="1727946955268" duration="2057000" />
+      <workItem from="1727949044752" duration="354000" />
+      <workItem from="1727949512654" duration="1900000" />
     </task>
     <task id="LOCAL−00001" summary="fixade docker">
       <option name="closed" value="true" />
@@ -278,7 +278,14 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1727886721137</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="fixade db o hemsida">
+      <option name="closed" value="true" />
+      <created>1727945059752</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1727945059753</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +305,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="package, import correct" />
     <MESSAGE value="fixade docker" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixade docker" />
+    <MESSAGE value="fixade db o hemsida" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixade db o hemsida" />
   </component>
 </project>
