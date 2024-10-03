@@ -24,6 +24,7 @@ public class Controller extends HttpServlet {
         model = new Model();
         try {
             model.connect();
+            System.out.println("Connected to database");
         } catch (SQLException e) {
             throw new ServletException("Failed to connect to the database during servlet initialization", e);
         }
@@ -34,7 +35,15 @@ public class Controller extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null) {
-            response.sendRedirect("index.jsp");
+            try {
+                List<Product> products = model.getAllProducts();
+                request.setAttribute("products", products);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                response.sendRedirect("error.jsp");
+                return;
+            }
+            request.getRequestDispatcher("index.jsp").forward(request, response);
             return;
         }
 
@@ -55,7 +64,6 @@ public class Controller extends HttpServlet {
             response.sendRedirect("error.jsp");
         }
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");

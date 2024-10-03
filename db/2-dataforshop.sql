@@ -6,12 +6,12 @@ INSERT INTO users (username, password) VALUES
                                            ('diana_white', 'password4');
 
 -- Insert data into products table
-INSERT INTO products (name, stock, price, category) VALUES
-                                                        ('Gaming Laptop', 5, 1200.00, 'Electronics'),
-                                                        ('Wireless Mouse', 20, 25.99, 'Accessories'),
-                                                        ('Office Chair', 15, 150.00, 'Furniture'),
-                                                        ('Bluetooth Headphones', 30, 75.50, 'Accessories'),
-                                                        ('Coffee Maker', 10, 89.99, 'Kitchenware');
+INSERT INTO products (productId,name, stock, price, category) VALUES
+                                                        (1,'Gaming Laptop', 5, 1200.00, 'Electronics'),
+                                                        (2,'Wireless Mouse', 20, 25.99, 'Accessories'),
+                                                        (3,'Office Chair', 15, 150.00, 'Furniture'),
+                                                        (4,'Bluetooth Headphones', 30, 75.50, 'Accessories'),
+                                                        (5,'Coffee Maker', 10, 89.99, 'Kitchenware');
 
 -- Insert data into shoppingCart table
 INSERT INTO shoppingCart (userId, productId, amount) VALUES
