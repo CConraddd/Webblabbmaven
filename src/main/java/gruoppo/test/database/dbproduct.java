@@ -34,6 +34,7 @@ public class dbproduct {
     }
     */
 
+
     public static void addProductToCart(Connection connection, int userId, int productId, int quantity) throws SQLException {
         String query = "INSERT INTO shoppingCart (userId, productId, amount) VALUES (?, ?, ?) " +
                 "ON DUPLICATE KEY UPDATE amount = amount + ?";
