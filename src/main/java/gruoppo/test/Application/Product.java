@@ -11,10 +11,9 @@ public class Product {
     private String category;
 
     // Constructor for creating a new product without a product ID (e.g., for adding a new product)
-    public Product(String name, int stock, BigDecimal price, String category, int amount) {
+    public Product(String name, int stock, BigDecimal price, String category) {
         this.name = name;
         this.stock = stock;
-        this.amount = amount;
         this.price = price;
         this.category = category;
     }

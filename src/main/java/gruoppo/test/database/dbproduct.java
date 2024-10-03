@@ -88,6 +88,25 @@ public class dbproduct {
         return cart;
     }
 
+    public static List<Product> getAllProducts(Connection connection) throws SQLException {
+        List<Product> products = new ArrayList<>();
+        String query = "SELECT productId, name, stock, price, category FROM products";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Product product = new Product(
+
+                    rs.getString("name"),
+                    rs.getInt("stock"),
+                    rs.getBigDecimal("price"),
+                    rs.getString("category")
+                );
+                products.add(product);
+            }
+        }
+        return products;
+    }
+
     /*
     // 2. Update an existing product
     public static boolean updateProduct(Product product) {

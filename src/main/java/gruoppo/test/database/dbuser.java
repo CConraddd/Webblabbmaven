@@ -88,4 +88,17 @@ public class dbuser {
             connection.setAutoCommit(true);
         }
     }
+
+    public static int getUserId(Connection connection, String username) throws SQLException {
+        String query = "SELECT userId FROM users WHERE username = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("userId");
+            } else {
+                throw new SQLException("No user found with the given username.");
+            }
+        }
+    }
 }

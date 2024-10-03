@@ -56,6 +56,15 @@ public class Model {
             throw new SQLException("Failed to delete user" + e.getMessage());
         }
     }
+
+    public int getUserId(String username) throws SQLException {
+        try (Connection connection = dbmanager.getConnection()) {
+            return dbuser.getUserId(connection, username);
+        } catch (SQLException e) {
+            throw new SQLException("Failed to retrieve user ID for username: " + username + " - " + e.getMessage());
+        }
+    }
+
     public boolean addProductToCart(int userId, int productId, int quantity) throws SQLException{
         try(Connection connection = dbmanager.getConnection()){
             dbproduct.removeProductFromCart(connection, userId, productId);
@@ -90,4 +99,13 @@ public class Model {
             throw new SQLException("Failed retrieving all products in cart" + e.getMessage());
         }
     }
+
+    public List<Product> getAllProducts() throws SQLException {
+        try (Connection connection = dbmanager.getConnection()) {
+            return dbproduct.getAllProducts(connection);
+        } catch (SQLException e) {
+            throw new SQLException("Failed to retrieve all products: " + e.getMessage());
+        }
+    }
+
 }
