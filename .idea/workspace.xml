@@ -10,21 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="model class and dbuser">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfiguration/Tomcat_10_1-30.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Tomcat_10_1_30.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/2-dataforshop.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/2-dataforshop.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/Dbimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/Dbimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbproduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbproduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/products.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/products.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="dbimpl" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -315,7 +301,7 @@
       <workItem from="1728030914469" duration="1941000" />
       <workItem from="1728032913959" duration="638000" />
       <workItem from="1728033566338" duration="55000" />
-      <workItem from="1728033968071" duration="645000" />
+      <workItem from="1728033968071" duration="955000" />
     </task>
     <task id="LOCAL−00001" summary="fixade docker">
       <option name="closed" value="true" />
@@ -331,7 +317,14 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1727945059753</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="dbimpl">
+      <option name="closed" value="true" />
+      <created>1728034723021</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1728034723021</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,6 +345,7 @@
     <MESSAGE value="package, import correct" />
     <MESSAGE value="fixade docker" />
     <MESSAGE value="fixade db o hemsida" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixade db o hemsida" />
+    <MESSAGE value="dbimpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="dbimpl" />
   </component>
 </project>
