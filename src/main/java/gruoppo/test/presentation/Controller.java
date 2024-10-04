@@ -134,7 +134,9 @@ public class Controller extends HttpServlet {
     }
 
     private void handleAddToCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+
         if (user == null) {
             response.sendRedirect("login.jsp?error=You must be logged in to add items to the cart");
             return;
@@ -144,6 +146,10 @@ public class Controller extends HttpServlet {
         int quantity = Integer.parseInt(request.getParameter("quantity"));
 
         model.addProductToCart(user.getId(), productId, quantity);
+
+        List<Product> updatedCart = model.getProductsInCart(user.getId());
+        session.setAttribute("cart", updatedCart);
+
         response.sendRedirect("controller?action=viewCart");
     }
 

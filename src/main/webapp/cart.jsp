@@ -24,7 +24,8 @@
     %>
     <li>
         <%= product.getName() %> - <%= product.getPrice() %> USD - Quantity: <%= product.getAmount() %>
-        <form action="removeProductFromCart" method="post">
+        <form action="controller" method="post">
+            <input type="hidden" name="action" value="removeFromCart">
             <input type="hidden" name="productId" value="<%= product.getProductId() %>">
             <button type="submit">Remove</button>
         </form>
@@ -33,7 +34,8 @@
         }
     %>
 </ul>
-<form action="clearCart" method="post">
+<form action="controller" method="post">
+    <input type="hidden" name="action" value="clearCart">
     <button type="submit">Clear Cart</button>
 </form>
 <%

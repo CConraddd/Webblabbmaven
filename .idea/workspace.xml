@@ -12,13 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="jsp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/Dbimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/Dbimpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/products.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/products.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cart.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +305,7 @@
       <workItem from="1728030914469" duration="1941000" />
       <workItem from="1728032913959" duration="638000" />
       <workItem from="1728033566338" duration="55000" />
-      <workItem from="1728033968071" duration="6091000" />
+      <workItem from="1728033968071" duration="8286000" />
     </task>
     <task id="LOCAL−00001" summary="fixade docker">
       <option name="closed" value="true" />
@@ -340,7 +335,14 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1728035074542</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="jsp">
+      <option name="closed" value="true" />
+      <created>1728040377952</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1728040377952</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
