@@ -25,32 +25,32 @@ public class Model {
     }
 
     public User registerUser(String username, String password) throws SQLException{
-        try(Connection connection = dbmanager.getConnection()){
-            return dbuser.register(connection, username, password);
+        try{
+            return dbuser.register(dbmanager.getConnection(), username, password);
         } catch (SQLException e) {
             throw new SQLException(e.getMessage());
         }
     }
 
     public boolean loginUser(String username, String password) throws SQLException{
-        try(Connection connection = dbmanager.getConnection()){
-            return dbuser.login(connection, username, password);
+        try{
+            return dbuser.login(dbmanager.getConnection(), username, password);
         }catch (SQLException e){
             throw new SQLException(e.getMessage());
         }
     }
 
     public boolean updateUserInfo(int userId, String newUsername, String newPassword) throws SQLException{
-        try(Connection connection = dbmanager.getConnection()){
-            dbuser.updateUserInfo(connection, userId, newUsername, newPassword);
+        try{
+            dbuser.updateUserInfo(dbmanager.getConnection(), userId, newUsername, newPassword);
             return true;
         }catch (SQLException e){
             throw new SQLException("Failed to update user info" + e.getMessage());
         }
     }
     public boolean deleteUser(int userId) throws SQLException{
-        try(Connection connection = dbmanager.getConnection()){
-            dbuser.deleteUser(connection, userId);
+        try{
+            dbuser.deleteUser(dbmanager.getConnection(), userId);
             return true;
         }catch (SQLException e){
             throw new SQLException("Failed to delete user" + e.getMessage());
@@ -58,16 +58,16 @@ public class Model {
     }
 
     public int getUserId(String username) throws SQLException {
-        try (Connection connection = dbmanager.getConnection()) {
-            return dbuser.getUserId(connection, username);
+        try{
+            return dbuser.getUserId(dbmanager.getConnection(), username);
         } catch (SQLException e) {
             throw new SQLException("Failed to retrieve user ID for username: " + username + " - " + e.getMessage());
         }
     }
 
     public boolean addProductToCart(int userId, int productId, int quantity) throws SQLException{
-        try(Connection connection = dbmanager.getConnection()){
-            dbproduct.addProductToCart(connection, userId, productId, quantity);
+        try{
+            dbproduct.addProductToCart(dbmanager.getConnection(), userId, productId, quantity);
             return true;
         }catch (SQLException e){
             throw new SQLException("Failed to add product to cart" + e.getMessage());
@@ -75,8 +75,8 @@ public class Model {
     }
 
     public boolean removeProductFromCart(int userId, int productId) throws SQLException{
-        try(Connection connection = dbmanager.getConnection()){
-            dbproduct.removeProductFromCart(connection, userId, productId);
+        try{
+            dbproduct.removeProductFromCart(dbmanager.getConnection(), userId, productId);
             return true;
         }catch (SQLException e){
             throw new SQLException("Failed to remove product from cart" + e.getMessage());
@@ -84,8 +84,8 @@ public class Model {
     }
 
     public boolean clearCart(int userId) throws SQLException{
-        try(Connection connection = dbmanager.getConnection()){
-            dbproduct.clearCart(connection, userId);
+        try{
+            dbproduct.clearCart(dbmanager.getConnection(), userId);
             return true;
         }catch (SQLException e){
             throw new SQLException("Failed to clear cart" + e.getMessage());
@@ -93,17 +93,16 @@ public class Model {
     }
 
     public List<Product> getProductsInCart(int userId) throws SQLException{
-        try(Connection connection = dbmanager.getConnection()){
-            return dbproduct.getProductsInCart(connection, userId);
+        try{
+            return dbproduct.getProductsInCart(dbmanager.getConnection(), userId);
         }catch (SQLException e){
             throw new SQLException("Failed retrieving all products in cart" + e.getMessage());
         }
     }
 
     public List<Product> getAllProducts() throws SQLException {
-        try (Connection connection = dbmanager.getConnection()) {
-
-            return dbproduct.getAllProducts(connection);
+        try {
+            return dbproduct.getAllProducts(dbmanager.getConnection());
         } catch (SQLException e) {
             throw new SQLException("Failed to retrieve all products: " + e.getMessage());
         }

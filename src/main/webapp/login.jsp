@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Login</h1>
-<form action="UserController" method="post">
+<form action="controller" method="post">
     <input type="hidden" name="action" value="login">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required><br><br>
@@ -18,5 +18,13 @@
     <button type="submit">Login</button>
 </form>
 <p>Don't have an account? <a href="register.jsp">Register here</a></p>
+
+<%-- Visar felmeddelande vid misslyckad inloggning --%>
+<c:if test="${not empty errorMessage}">
+    <div style="color: red;">
+        <strong>${errorMessage}</strong>
+    </div>
+</c:if>
+
 </body>
 </html>

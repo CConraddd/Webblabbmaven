@@ -34,15 +34,7 @@ public class Controller extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null) {
-            try {
-                List<Product> products = model.getAllProducts();
-                request.setAttribute("products", products);
-            } catch (SQLException e) {
-                e.printStackTrace();
-                response.sendRedirect("error.jsp");
-                return;
-            }
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            redirectToIndex(request, response);
             return;
         }
 
@@ -55,22 +47,20 @@ public class Controller extends HttpServlet {
                     handleViewCart(request, response);
                     break;
                 default:
-                    response.sendRedirect("index.jsp");
+                    redirectToIndex(request, response);
                     break;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            handleError(response, e);
         }
     }
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
         if (action == null) {
-            response.sendRedirect("index.jsp");
+            redirectToIndex(request, response);
             return;
         }
 
@@ -89,12 +79,11 @@ public class Controller extends HttpServlet {
                     handleRemoveFromCart(request, response);
                     break;
                 default:
-                    response.sendRedirect("index.jsp");
+                    redirectToIndex(request, response);
                     break;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            handleError(response, e);
         }
     }
 
@@ -106,7 +95,7 @@ public class Controller extends HttpServlet {
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            response.sendRedirect("welcome.jsp");
+            response.sendRedirect("index.jsp");
         } else {
             response.sendRedirect("register.jsp?error=Registration failed");
         }
@@ -120,7 +109,7 @@ public class Controller extends HttpServlet {
         if (isLoggedIn) {
             HttpSession session = request.getSession();
             session.setAttribute("user", new User(username, model.getUserId(username)));
-            response.sendRedirect("welcome.jsp");
+            response.sendRedirect("index.jsp");
         } else {
             response.sendRedirect("login.jsp?error=Invalid credentials");
         }
@@ -147,7 +136,7 @@ public class Controller extends HttpServlet {
     private void handleAddToCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login.jsp?error=You must be logged in to add items to the cart");
             return;
         }
 
@@ -161,7 +150,7 @@ public class Controller extends HttpServlet {
     private void handleRemoveFromCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login.jsp?error=You must be logged in to remove items from the cart");
             return;
         }
 
@@ -169,6 +158,21 @@ public class Controller extends HttpServlet {
 
         model.removeProductFromCart(user.getId(), productId);
         response.sendRedirect("controller?action=viewCart");
+    }
+
+    private void handleError(HttpServletResponse response, SQLException e) throws IOException {
+        e.printStackTrace();
+        response.sendRedirect("error.jsp?error=" + e.getMessage());
+    }
+
+    private void redirectToIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            List<Product> products = model.getAllProducts();
+            request.setAttribute("products", products);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        } catch (SQLException e) {
+            handleError(response, e);
+        }
     }
 
     @Override
@@ -180,4 +184,3 @@ public class Controller extends HttpServlet {
         }
     }
 }
-

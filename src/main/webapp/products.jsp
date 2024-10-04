@@ -1,7 +1,4 @@
-<%@ page import="gruoppo.test.Application.Product" %>
-<%@ page import="java.util.List" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,31 +27,33 @@
 </nav>
 
 <div class="product-list">
-    <%
-        // Hämta alla produkter från requesten (satt av controllern)
-        List<Product> products = (List<Product>) request.getAttribute("products");
-        if (products != null && !products.isEmpty()) {
-            for (Product product : products) {
-    %>
-    <div class="product">
-        <h2><%= product.getName() %></h2>
-        <p>Price: $<%= product.getPrice() %></p>
-        <p>Stock: <%= product.getStock() %></p>
-        <form action="controller" method="post">
-            <input type="hidden" name="action" value="addToCart">
-            <input type="hidden" name="productId" value="<%= product.getProductId() %>">
-            <input type="number" name="quantity" value="1" min="1">
-            <button type="submit">Add to Cart</button>
-        </form>
-    </div>
-    <%
-        }
-    } else {
-    %>
-    <p>No products available.</p>
-    <%
-        }
-    %>
+    <c:if test="${not empty products}">
+        <c:forEach var="product" items="${products}">
+            <div class="product">
+                <h2>${product.name}</h2>
+                <p>Price: $${product.price}</p>
+                <p>Stock: ${product.stock}</p>
+                <c:choose>
+                    <c:when test="${not empty user}">
+                        <!-- Om användaren är inloggad, visa addToCart-formuläret -->
+                        <form action="controller" method="post">
+                            <input type="hidden" name="action" value="addToCart">
+                            <input type="hidden" name="productId" value="${product.productId}">
+                            <input type="number" name="quantity" value="1" min="1">
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </c:when>
+                    <c:otherwise>
+                        <!-- Om användaren inte är inloggad, visa en länk för att logga in -->
+                        <p><a href="login.jsp">Log in to add to cart</a></p>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+        </c:forEach>
+    </c:if>
+    <c:if test="${empty products}">
+        <p>No products available.</p>
+    </c:if>
 </div>
 </body>
 </html>

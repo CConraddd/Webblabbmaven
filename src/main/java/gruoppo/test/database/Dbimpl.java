@@ -37,7 +37,10 @@ public class Dbimpl {
         }
     }
 
-    public Connection getConnection() {
+    public Connection getConnection() throws SQLException {
+        if (connection == null || connection.isClosed()) {
+            connect();
+        }
         return connection;
     }
 
