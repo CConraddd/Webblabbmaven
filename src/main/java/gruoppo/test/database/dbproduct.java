@@ -95,14 +95,17 @@ public class dbproduct {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Product product = new Product(
-                    rs.getInt("productId"),
-                    rs.getString("name"),
-                    rs.getInt("stock"),
-                    rs.getBigDecimal("price"),
-                    rs.getString("category")
+                        rs.getInt("productId"), // Lägg till productId
+                        rs.getString("name"),
+                        rs.getInt("stock"),
+                        rs.getBigDecimal("price"),
+                        rs.getString("category")
                 );
                 products.add(product);
             }
+        }
+        if (products.isEmpty()) {
+            System.out.println("No products retrieved from the database.");
         }
         return products;
     }

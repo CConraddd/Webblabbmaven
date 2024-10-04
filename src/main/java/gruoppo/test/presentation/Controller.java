@@ -4,12 +4,12 @@ import gruoppo.test.Application.Product;
 import gruoppo.test.Application.User;
 import gruoppo.test.Application.Model;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -34,7 +34,15 @@ public class Controller extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null) {
-            response.sendRedirect("index.jsp");
+            try {
+                List<Product> products = model.getAllProducts();
+                request.setAttribute("products", products);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                response.sendRedirect("error.jsp");
+                return;
+            }
+            request.getRequestDispatcher("index.jsp").forward(request, response);
             return;
         }
 
@@ -55,6 +63,7 @@ public class Controller extends HttpServlet {
             response.sendRedirect("error.jsp");
         }
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

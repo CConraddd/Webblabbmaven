@@ -15,7 +15,6 @@
 </nav>
 
 <%
-    // Exempel: hämta shoppingkorg från sessionen
     List<Product> cart = (List<Product>) session.getAttribute("cart");
     if (cart != null && !cart.isEmpty()) {
 %>
@@ -24,7 +23,7 @@
         for (Product product : cart) {
     %>
     <li>
-        <%= product.getName() %> - <%= product.getPrice() %> USD - Quantity: <%= product.getQuantity() %>
+        <%= product.getName() %> - <%= product.getPrice() %> USD - Quantity: <%= product.getAmount() %>
         <form action="removeProductFromCart" method="post">
             <input type="hidden" name="productId" value="<%= product.getProductId() %>">
             <button type="submit">Remove</button>
