@@ -72,6 +72,7 @@
 </html>
 --%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,39 +80,37 @@
     <title>Web Shop - Home</title>
 </head>
 <body>
-<h1>Welcome to the Web Shop!</h1>
-<nav>
-    <a href="login.jsp">Login</a> |
-    <a href="controller?action=viewProducts">View Products</a> |
-    <a href="cart.jsp">View Cart</a>
-</nav>
+    <h1>Welcome to the Web Shop!</h1>
+    <nav>
+        <a href="login.jsp">Login</a> |
+        <a href="products.jsp">View Products</a> |
+        <a href="cart.jsp">View Cart</a>
+    </nav>
 
-<h2>Featured Products</h2>
-<ul>
-    <%
-        // Hämta lista med produkter (detta attribut måste sättas av controllern)
-        List<Product> products = (List<Product>) request.getAttribute("products");
-        if (products != null && !products.isEmpty()) {
-            for (Product product : products) {
-    %>
-    <li>
-        <%= product.getName() %> - <%= product.getPrice() %> USD
-        <form action="controller" method="post">
-            <input type="hidden" name="action" value="addToCart">
-            <input type="hidden" name="productId" value="<%= product.getProductId() %>">
-            <input type="number" name="quantity" value="1" min="1">
-            <button type="submit">Add to Cart</button>
-        </form>
-    </li>
-    <%
-        }
-    } else {
-    %>
-    <p>No products available.</p>
-    <%
-        }
-    %>
-</ul>
+    <h2>Featured Products</h2>
+    <ul>
+        <%
+            // Exempel: hämta lista med produkter (detta borde egentligen hämtas från en databas via en servlet/controller)
+            List<Product> products = (List<Product>) request.getAttribute("products");
+            if (products != null) {
+                for (Product product : products) {
+        %>
+            <li>
+                <%= product.getName() %> - <%= product.getPrice() %> USD
+                <form action="addProductToCart" method="post">
+                    <input type="hidden" name="productId" value="<%= product.getProductId() %>">
+                    <input type="number" name="quantity" value="1" min="1">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </li>
+        <%
+                }
+            } else {
+        %>
+            <p>No products available.</p>
+        <%
+            }
+        %>
+    </ul>
 </body>
 </html>
-

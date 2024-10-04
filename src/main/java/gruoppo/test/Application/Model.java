@@ -67,7 +67,7 @@ public class Model {
 
     public boolean addProductToCart(int userId, int productId, int quantity) throws SQLException{
         try(Connection connection = dbmanager.getConnection()){
-            dbproduct.removeProductFromCart(connection, userId, productId);
+            dbproduct.addProductToCart(connection, userId, productId, quantity);
             return true;
         }catch (SQLException e){
             throw new SQLException("Failed to add product to cart" + e.getMessage());
@@ -102,6 +102,7 @@ public class Model {
 
     public List<Product> getAllProducts() throws SQLException {
         try (Connection connection = dbmanager.getConnection()) {
+
             return dbproduct.getAllProducts(connection);
         } catch (SQLException e) {
             throw new SQLException("Failed to retrieve all products: " + e.getMessage());
