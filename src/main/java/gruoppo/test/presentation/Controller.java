@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/controller")
@@ -78,6 +79,9 @@ public class Controller extends HttpServlet {
                 case "removeFromCart":
                     handleRemoveFromCart(request, response);
                     break;
+                case "clearCart":
+                    handleClearCart(request, response);
+                    break;
                 default:
                     redirectToIndex(request, response);
                     break;
@@ -95,11 +99,16 @@ public class Controller extends HttpServlet {
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+
+            List<Product> cart = model.getProductsInCart(user.getId());
+            session.setAttribute("cart", cart);
+
             response.sendRedirect("index.jsp");
         } else {
-            response.sendRedirect("register.jsp?error=Registration failed");
+            response.sendRedirect("register.jsp?error=Registration failed, please try again");
         }
     }
+
 
     private void handleLogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         String username = request.getParameter("username");
@@ -108,7 +117,15 @@ public class Controller extends HttpServlet {
         boolean isLoggedIn = model.loginUser(username, password);
         if (isLoggedIn) {
             HttpSession session = request.getSession();
-            session.setAttribute("user", new User(username, model.getUserId(username)));
+
+            int userId = model.getUserId(username);
+            User user = new User(username, userId);
+
+            session.setAttribute("user", user);
+
+            List<Product> cart = model.getProductsInCart(userId);
+            session.setAttribute("cart", cart);
+
             response.sendRedirect("index.jsp");
         } else {
             response.sendRedirect("login.jsp?error=Invalid credentials");
@@ -154,6 +171,7 @@ public class Controller extends HttpServlet {
     }
 
     private void handleRemoveFromCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+        HttpSession session = request.getSession();
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             response.sendRedirect("login.jsp?error=You must be logged in to remove items from the cart");
@@ -163,6 +181,25 @@ public class Controller extends HttpServlet {
         int productId = Integer.parseInt(request.getParameter("productId"));
 
         model.removeProductFromCart(user.getId(), productId);
+
+        List<Product> updatedCart = model.getProductsInCart(user.getId());
+        session.setAttribute("cart", updatedCart);
+        response.sendRedirect("controller?action=viewCart");
+    }
+
+    private void handleClearCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+
+        if (user == null) {
+            response.sendRedirect("login.jsp?error=You must be logged in to clear your cart");
+            return;
+        }
+
+        model.clearCart(user.getId());
+
+        session.setAttribute("cart", new ArrayList<>());
+
         response.sendRedirect("controller?action=viewCart");
     }
 

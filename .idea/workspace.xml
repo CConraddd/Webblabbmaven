@@ -14,6 +14,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +306,7 @@
       <workItem from="1728030914469" duration="1941000" />
       <workItem from="1728032913959" duration="638000" />
       <workItem from="1728033566338" duration="55000" />
-      <workItem from="1728033968071" duration="8286000" />
+      <workItem from="1728033968071" duration="11557000" />
     </task>
     <task id="LOCAL−00001" summary="fixade docker">
       <option name="closed" value="true" />
@@ -342,7 +343,14 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1728040377952</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="jsp">
+      <option name="closed" value="true" />
+      <created>1728042958448</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1728042958448</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
