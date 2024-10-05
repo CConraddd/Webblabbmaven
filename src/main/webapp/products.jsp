@@ -21,6 +21,7 @@
 </head>
 <body>
 <h1>Available Products</h1>
+
 <nav>
     <a href="index.jsp">Home</a> |
     <a href="cart.jsp">View Cart</a>

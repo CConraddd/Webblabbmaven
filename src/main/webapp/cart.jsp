@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1>Your Shopping Cart</h1>
+
 <nav>
     <a href="index.jsp">Home</a> |
     <a href="controller?action=viewProducts">View Products</a>

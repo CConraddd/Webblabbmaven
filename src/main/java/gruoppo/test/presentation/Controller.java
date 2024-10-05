@@ -47,6 +47,9 @@ public class Controller extends HttpServlet {
                 case "viewCart":
                     handleViewCart(request, response);
                     break;
+                case "logout":
+                    handleLogout(request, response);
+                    break;
                 default:
                     redirectToIndex(request, response);
                     break;
@@ -130,6 +133,12 @@ public class Controller extends HttpServlet {
         } else {
             response.sendRedirect("login.jsp?error=Invalid credentials");
         }
+    }
+
+    private void handleLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        response.sendRedirect("index.jsp");
     }
 
     private void handleViewProducts(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {

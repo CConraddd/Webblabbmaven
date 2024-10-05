@@ -11,15 +11,21 @@
 <body>
 <h1>Welcome to the Web Shop!</h1>
 
-<%-- Visar ett meddelande om inloggning lyckades --%>
-<c:if test="${not empty message}">
-    <div style="color: green;">
-        <strong>${message}</strong>
+<c:if test="${not empty user}">
+    <div>
+        Welcome, ${user.username}!
     </div>
 </c:if>
 
 <nav>
-    <a href="login.jsp">Login</a> |
+    <c:choose>
+        <c:when test="${not empty user}">
+            <a href="controller?action=logout">Logout</a>
+        </c:when>
+        <c:otherwise>
+            <a href="login.jsp">Login</a> |
+        </c:otherwise>
+    </c:choose>
     <a href="controller?action=viewProducts">View Products</a> |
     <a href="cart.jsp">View Cart</a>
 </nav>
