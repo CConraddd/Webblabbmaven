@@ -45,50 +45,6 @@ public class dbuser {
         return user;
     }
 
-    public static void updateUserInfo(Connection connection, int userId, String newUsername, String newPassword) throws SQLException {
-        String query = "UPDATE users SET username = ?, password = ? WHERE userId = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            connection.setAutoCommit(false);
-
-            stmt.setString(1, newUsername);
-            stmt.setString(2, newPassword);
-            stmt.setInt(3, userId);
-
-            int rowsAffected = stmt.executeUpdate();
-            if (rowsAffected == 0) {
-                throw new SQLException("No user found with the given ID.");
-            }
-
-            connection.commit();
-        } catch (SQLException e) {
-            connection.rollback();
-            throw e;
-        } finally {
-            connection.setAutoCommit(true);
-        }
-    }
-
-    public static void deleteUser(Connection connection, int userId) throws SQLException {
-        String query = "DELETE FROM users WHERE userId = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            connection.setAutoCommit(false);
-
-            stmt.setInt(1, userId);
-            int rowsAffected = stmt.executeUpdate();
-
-            if (rowsAffected == 0) {
-                throw new SQLException("No user found with the given ID.");
-            }
-
-            connection.commit();
-        } catch (SQLException e) {
-            connection.rollback();
-            throw e;
-        } finally {
-            connection.setAutoCommit(true);
-        }
-    }
-
     public static int getUserId(Connection connection, String username) throws SQLException {
         String query = "SELECT userId FROM users WHERE username = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {

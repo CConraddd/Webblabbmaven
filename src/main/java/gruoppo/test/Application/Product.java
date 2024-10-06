@@ -31,16 +31,8 @@ public class Product {
         return amount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-    // Getters and Setters
     public int getProductId() {
         return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
     }
 
     public String getName() {
@@ -51,28 +43,8 @@ public class Product {
         this.name = name;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
     public BigDecimal getPrice() {
         return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     @Override

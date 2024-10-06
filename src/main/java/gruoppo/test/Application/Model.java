@@ -38,23 +38,6 @@ public class Model {
         }
     }
 
-    public boolean updateUserInfo(int userId, String newUsername, String newPassword) throws SQLException{
-        try{
-            dbuser.updateUserInfo(dbmanager.getConnection(), userId, newUsername, newPassword);
-            return true;
-        }catch (SQLException e){
-            throw new SQLException("Failed to update user info" + e.getMessage());
-        }
-    }
-    public boolean deleteUser(int userId) throws SQLException{
-        try{
-            dbuser.deleteUser(dbmanager.getConnection(), userId);
-            return true;
-        }catch (SQLException e){
-            throw new SQLException("Failed to delete user" + e.getMessage());
-        }
-    }
-
     public int getUserId(String username) throws SQLException {
         try{
             return dbuser.getUserId(dbmanager.getConnection(), username);
