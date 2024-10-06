@@ -12,11 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="log out feature when logged in">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbuser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,8 +268,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Application.dbimpl" />
       </list>
     </recent_temporary>

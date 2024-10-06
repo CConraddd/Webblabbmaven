@@ -47,6 +47,34 @@ public class Product {
         return price;
     }
 
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
         return "Product [productId=" + productId + ", name=" + name + ", stock=" + stock + ", price=" + price
