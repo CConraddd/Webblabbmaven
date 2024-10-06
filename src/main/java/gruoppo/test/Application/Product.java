@@ -18,7 +18,6 @@ public class Product {
         this.category = category;
     }
 
-    // Constructor for fetching an existing product (with productId)
     public Product(int productId, String name, int stock, BigDecimal price, String category, int amount) {
         this.productId = productId;
         this.name = name;
@@ -76,7 +75,6 @@ public class Product {
         this.category = category;
     }
 
-    // ToString method for displaying product information
     @Override
     public String toString() {
         return "Product [productId=" + productId + ", name=" + name + ", stock=" + stock + ", price=" + price

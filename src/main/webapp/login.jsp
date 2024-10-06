@@ -19,7 +19,6 @@
 </form>
 <p>Don't have an account? <a href="register.jsp">Register here</a></p>
 
-<%-- Visar felmeddelande vid misslyckad inloggning --%>
 <c:if test="${not empty errorMessage}">
     <div style="color: red;">
         <strong>${errorMessage}</strong>

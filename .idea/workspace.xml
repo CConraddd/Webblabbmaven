@@ -10,12 +10,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="jsp">
+    <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="log out feature when logged in">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dborder.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbproduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/database/dbproduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/products.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/products.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,12 +42,12 @@
     &quot;assignee&quot;: &quot;kalste00&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/CConraddd/Webblabbmaven.git&quot;,
-    &quot;accountId&quot;: &quot;ee500729-9a71-4fd4-b505-40fdd459f744&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/CConraddd/Webblabbmaven.git",
+    "accountId": "cc7cb52a-8b28-4fe6-a1dd-65dad537a2af"
   }
-}</component>
+}]]></component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -271,8 +273,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
         <item itemvalue="Application.dbimpl" />
       </list>
     </recent_temporary>
@@ -309,6 +311,7 @@
       <workItem from="1728032913959" duration="638000" />
       <workItem from="1728033566338" duration="55000" />
       <workItem from="1728033968071" duration="11557000" />
+      <workItem from="1728208798264" duration="1668000" />
     </task>
     <task id="LOCAL−00001" summary="fixade docker">
       <option name="closed" value="true" />
@@ -352,7 +355,14 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1728042958448</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="log out feature when logged in">
+      <option name="closed" value="true" />
+      <created>1728136911605</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1728136911605</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,6 +385,7 @@
     <MESSAGE value="fixade db o hemsida" />
     <MESSAGE value="dbimpl" />
     <MESSAGE value="jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="jsp" />
+    <MESSAGE value="log out feature when logged in" />
+    <option name="LAST_COMMIT_MESSAGE" value="log out feature when logged in" />
   </component>
 </project>

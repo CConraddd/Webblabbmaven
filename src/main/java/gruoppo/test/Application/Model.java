@@ -4,8 +4,6 @@ import gruoppo.test.database.Dbimpl;
 import gruoppo.test.database.dbproduct;
 import gruoppo.test.database.dbuser;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -65,28 +63,25 @@ public class Model {
         }
     }
 
-    public boolean addProductToCart(int userId, int productId, int quantity) throws SQLException{
+    public void addProductToCart(int userId, int productId, int quantity) throws SQLException{
         try{
             dbproduct.addProductToCart(dbmanager.getConnection(), userId, productId, quantity);
-            return true;
         }catch (SQLException e){
             throw new SQLException("Failed to add product to cart" + e.getMessage());
         }
     }
 
-    public boolean removeProductFromCart(int userId, int productId) throws SQLException{
+    public void removeProductFromCart(int userId, int productId) throws SQLException{
         try{
             dbproduct.removeProductFromCart(dbmanager.getConnection(), userId, productId);
-            return true;
         }catch (SQLException e){
             throw new SQLException("Failed to remove product from cart" + e.getMessage());
         }
     }
 
-    public boolean clearCart(int userId) throws SQLException{
+    public void clearCart(int userId) throws SQLException{
         try{
             dbproduct.clearCart(dbmanager.getConnection(), userId);
-            return true;
         }catch (SQLException e){
             throw new SQLException("Failed to clear cart" + e.getMessage());
         }

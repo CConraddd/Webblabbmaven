@@ -36,7 +36,6 @@
                 <p>Stock: ${product.stock}</p>
                 <c:choose>
                     <c:when test="${not empty user}">
-                        <!-- Om användaren är inloggad, visa addToCart-formuläret -->
                         <form action="controller" method="post">
                             <input type="hidden" name="action" value="addToCart">
                             <input type="hidden" name="productId" value="${product.productId}">
@@ -45,7 +44,6 @@
                         </form>
                     </c:when>
                     <c:otherwise>
-                        <!-- Om användaren inte är inloggad, visa en länk för att logga in -->
                         <p><a href="login.jsp">Log in to add to cart</a></p>
                     </c:otherwise>
                 </c:choose>
