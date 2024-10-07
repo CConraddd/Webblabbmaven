@@ -10,10 +10,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="log out feature when logged in">
+    <list default="true" id="c45c5d29-7b30-4862-99e1-5242942ece56" name="Changes" comment="clean up">
+      <change afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/Application/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gruoppo/test/presentation/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cart.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -357,7 +358,14 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1728136911605</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="clean up">
+      <option name="closed" value="true" />
+      <created>1728237044147</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1728237044147</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,6 +389,7 @@
     <MESSAGE value="dbimpl" />
     <MESSAGE value="jsp" />
     <MESSAGE value="log out feature when logged in" />
-    <option name="LAST_COMMIT_MESSAGE" value="log out feature when logged in" />
+    <MESSAGE value="clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
   </component>
 </project>

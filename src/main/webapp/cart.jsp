@@ -1,4 +1,4 @@
-<%@ page import="gruoppo.test.Application.Product" %>
+<%@ page import="gruoppo.test.Application.ProductInfo" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,12 +16,12 @@
 </nav>
 
 <%
-    List<Product> cart = (List<Product>) session.getAttribute("cart");
+    List<ProductInfo> cart = (List<ProductInfo>) session.getAttribute("cart");
     if (cart != null && !cart.isEmpty()) {
 %>
 <ul>
     <%
-        for (Product product : cart) {
+        for (ProductInfo product : cart) {
     %>
     <li>
         <%= product.getName() %> - <%= product.getPrice() %> USD - Quantity: <%= product.getAmount() %>

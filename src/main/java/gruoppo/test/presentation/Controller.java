@@ -1,8 +1,9 @@
 package gruoppo.test.presentation;
 
-import gruoppo.test.Application.Product;
-import gruoppo.test.Application.User;
-import gruoppo.test.Application.Model;
+import gruoppo.test.Application.ProductInfo;
+import gruoppo.test.Application.UserInfo;
+import gruoppo.test.service.ProductService;
+import gruoppo.test.service.UserService;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,16 +19,13 @@ import java.util.List;
 @WebServlet("/controller")
 public class Controller extends HttpServlet {
 
-    private Model model;
+    private ProductService productService;
+    private UserService userService;
 
     @Override
     public void init() throws ServletException {
-        model = new Model();
-        try {
-            model.connect();
-        } catch (SQLException e) {
-            throw new ServletException("Failed to connect to the database during servlet initialization", e);
-        }
+        productService = new ProductService();
+        userService = new UserService();
     }
 
     @Override
@@ -98,12 +96,12 @@ public class Controller extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        User user = model.registerUser(username, password);
+        UserInfo user = userService.registerUser(username, password);
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
 
-            List<Product> cart = model.getProductsInCart(user.getId());
+            List<ProductInfo> cart = productService.getProductsInCart(user.getUserId());
             session.setAttribute("cart", cart);
 
             response.sendRedirect("index.jsp");
@@ -112,21 +110,18 @@ public class Controller extends HttpServlet {
         }
     }
 
-
     private void handleLogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        boolean isLoggedIn = model.loginUser(username, password);
+        boolean isLoggedIn = userService.loginUser(username, password);
         if (isLoggedIn) {
             HttpSession session = request.getSession();
 
-            int userId = model.getUserId(username);
-            User user = new User(username, userId);
-
+            UserInfo user = userService.getUserInfoByUsername(username);
             session.setAttribute("user", user);
 
-            List<Product> cart = model.getProductsInCart(userId);
+            List<ProductInfo> cart = productService.getProductsInCart(user.getUserId());
             session.setAttribute("cart", cart);
 
             response.sendRedirect("index.jsp");
@@ -142,26 +137,26 @@ public class Controller extends HttpServlet {
     }
 
     private void handleViewProducts(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        List<Product> products = model.getAllProducts();
+        List<ProductInfo> products = productService.getAllProducts();
         request.setAttribute("products", products);
         request.getRequestDispatcher("products.jsp").forward(request, response);
     }
 
     private void handleViewCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
+        UserInfo user = (UserInfo) request.getSession().getAttribute("user");
         if (user == null) {
             response.sendRedirect("login.jsp");
             return;
         }
 
-        List<Product> cart = model.getProductsInCart(user.getId());
+        List<ProductInfo> cart = productService.getProductsInCart(user.getUserId());
         request.setAttribute("cart", cart);
         request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
 
     private void handleAddToCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
+        UserInfo user = (UserInfo) session.getAttribute("user");
 
         if (user == null) {
             response.sendRedirect("login.jsp?error=You must be logged in to add items to the cart");
@@ -171,9 +166,9 @@ public class Controller extends HttpServlet {
         int productId = Integer.parseInt(request.getParameter("productId"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-        model.addProductToCart(user.getId(), productId, quantity);
+        productService.addProductToCart(user.getUserId(), productId, quantity);
 
-        List<Product> updatedCart = model.getProductsInCart(user.getId());
+        List<ProductInfo> updatedCart = productService.getProductsInCart(user.getUserId());
         session.setAttribute("cart", updatedCart);
 
         response.sendRedirect("controller?action=viewCart");
@@ -181,7 +176,8 @@ public class Controller extends HttpServlet {
 
     private void handleRemoveFromCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         HttpSession session = request.getSession();
-        User user = (User) request.getSession().getAttribute("user");
+        UserInfo user = (UserInfo) session.getAttribute("user");
+
         if (user == null) {
             response.sendRedirect("login.jsp?error=You must be logged in to remove items from the cart");
             return;
@@ -189,23 +185,23 @@ public class Controller extends HttpServlet {
 
         int productId = Integer.parseInt(request.getParameter("productId"));
 
-        model.removeProductFromCart(user.getId(), productId);
+        productService.removeProductFromCart(user.getUserId(), productId);
 
-        List<Product> updatedCart = model.getProductsInCart(user.getId());
+        List<ProductInfo> updatedCart = productService.getProductsInCart(user.getUserId());
         session.setAttribute("cart", updatedCart);
         response.sendRedirect("controller?action=viewCart");
     }
 
     private void handleClearCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
+        UserInfo user = (UserInfo) session.getAttribute("user");
 
         if (user == null) {
             response.sendRedirect("login.jsp?error=You must be logged in to clear your cart");
             return;
         }
 
-        model.clearCart(user.getId());
+        productService.clearCart(user.getUserId());
 
         session.setAttribute("cart", new ArrayList<>());
 
@@ -219,7 +215,7 @@ public class Controller extends HttpServlet {
 
     private void redirectToIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            List<Product> products = model.getAllProducts();
+            List<ProductInfo> products = productService.getAllProducts();
             request.setAttribute("products", products);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (SQLException e) {
@@ -230,8 +226,9 @@ public class Controller extends HttpServlet {
     @Override
     public void destroy() {
         try {
-            model.disconnect();
-        } catch (SQLException e) {
+            productService = null;
+            userService = null;
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
